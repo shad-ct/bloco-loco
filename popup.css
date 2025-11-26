@@ -1,0 +1,175 @@
+body {
+  width: 350px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.hidden { display: none; }
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab-btn.active {
+  background: #007bff;
+  color: white;
+}
+
+main {
+  padding: 10px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+select {
+  flex: 1;
+  padding: 5px;
+}
+
+.full-width {
+  width: 100%;
+  padding: 8px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.list-container {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+}
+
+.history-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+.history-item:last-child { border-bottom: none; }
+
+.history-title {
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-url {
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.section {
+  margin-bottom: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+h3 { margin-top: 0; font-size: 14px; }
+
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.input-group {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.simple-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+#apiKeyScreen {
+  padding: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+}
