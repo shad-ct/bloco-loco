@@ -1,53 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Blocked</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8d7da;
-      color: #721c24;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      max-width: 500px;
-    }
-    h1 { margin-top: 0; }
-    .reason {
-      font-weight: bold;
-      margin: 20px 0;
-    }
-    button {
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover { background: #c82333; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="block.css">
 </head>
+
 <body>
   <div class="container">
-    <h1>🚫 Access Denied</h1>
-    <p>This page is blocked due to restricted content.</p>
-    <div class="reason" id="reasonText"></div>
-    <button id="bypassBtn">Temporary Bypass (5 min)</button>
+    <div class="icon-wrapper">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+      </svg>
+    </div>
+    <h1>Focus Mode Active</h1>
+    <p class="subtitle">This page is currently blocked to help you stay focused.</p>
+
+    <div class="reason-card">
+      <span class="label">Reason</span>
+      <div class="reason" id="reasonText">Restricted Content</div>
+    </div>
+
+    <button id="bypassBtn" class="bypass-btn">
+      <span>Take a 5 min break</span>
+    </button>
   </div>
   <script src="block.js"></script>
 </body>
+
 </html>

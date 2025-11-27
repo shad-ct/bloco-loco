@@ -4,36 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smart Blocker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div id="apiKeyScreen" class="hidden">
-    <h2>Welcome</h2>
-    <p>Please enter your Gemini API Key to start.</p>
-    <input type="password" id="apiKeyInput" placeholder="Paste API Key here">
-    <button id="saveApiKeyBtn">Save API Key</button>
-    <p><small><a href="https://aistudio.google.com/app/apikey" target="_blank">Get API Key</a></small></p>
+    <div class="welcome-container">
+      <h2>Welcome</h2>
+      <p class="subtitle">Enter your Gemini API Key to get started.</p>
+      <div class="input-wrapper">
+        <input type="password" id="apiKeyInput" placeholder="Paste API Key here">
+      </div>
+      <button id="saveApiKeyBtn" class="btn-primary">Save API Key</button>
+      <p class="helper-text"><a href="https://aistudio.google.com/app/apikey" target="_blank">Get API Key &rarr;</a></p>
+    </div>
   </div>
 
   <div id="mainApp" class="hidden">
     <header>
-      <div class="tabs">
+      <nav class="tabs">
         <button class="tab-btn active" data-tab="history">History</button>
         <button class="tab-btn" data-tab="block">Block</button>
-        <button class="tab-btn" data-tab="block-site">Block Site</button>
-      </div>
+        <button class="tab-btn" data-tab="block-site">Current</button>
+      </nav>
     </header>
 
     <main>
       <!-- History Tab -->
       <div id="history" class="tab-content active">
         <div class="controls">
-          <select id="categoryFilter">
-            <option value="all">All Categories</option>
-          </select>
-          <button id="refreshHistoryBtn" title="Refresh">🔄</button>
+          <div class="select-wrapper">
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+          <button id="refreshHistoryBtn" class="icon-btn" title="Refresh">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          </button>
         </div>
-        <button id="categorizeBtn" class="full-width">Categorize Last 7 Days</button>
+        <button id="categorizeBtn" class="btn-secondary full-width">Categorize Last 7 Days</button>
         <div id="historyList" class="list-container">
           <div class="empty-state">No history categorized yet.</div>
         </div>
@@ -43,17 +54,17 @@
       <div id="block" class="tab-content">
         
         <div class="section">
-          <h3>Block by Category</h3>
+          <h3 class="section-title">Block by Category</h3>
           <div id="categoryBlockList" class="toggle-list">
             <!-- Categories with toggles -->
           </div>
         </div>
 
         <div class="section">
-          <h3>Block Specific Titles</h3>
+          <h3 class="section-title">Block Specific Titles</h3>
           <div class="input-group">
-            <input type="text" id="blockTitleInput" placeholder="Enter title keyword (e.g. 'YouTube')">
-            <button id="addBlockTitleBtn">Add</button>
+            <input type="text" id="blockTitleInput" placeholder="Keyword (e.g. 'YouTube')">
+            <button id="addBlockTitleBtn" class="btn-small">Add</button>
           </div>
           <ul id="blockedTitlesList" class="simple-list">
             <!-- Blocked titles -->
@@ -65,18 +76,18 @@
       <!-- Block Site Tab -->
       <div id="block-site" class="tab-content">
         <div class="section">
-          <h3>Current Site</h3>
-          <div id="currentSiteInfo">
-            <p><strong>Domain:</strong> <span id="currentDomain">...</span></p>
-            <button id="blockCurrentSiteBtn" class="full-width" style="background: #dc3545;">Block This Site</button>
+          <h3 class="section-title">Current Site</h3>
+          <div id="currentSiteInfo" class="info-card">
+            <p class="domain-text" id="currentDomain">...</p>
+            <button id="blockCurrentSiteBtn" class="btn-danger full-width">Block This Site</button>
           </div>
         </div>
 
         <div class="section">
-          <h3>Blocked Sites</h3>
+          <h3 class="section-title">Blocked Sites</h3>
           <div class="input-group">
-            <input type="text" id="blockSiteInput" placeholder="Enter domain (e.g. youtube.com)">
-            <button id="addBlockSiteBtn">Add</button>
+            <input type="text" id="blockSiteInput" placeholder="Domain (e.g. youtube.com)">
+            <button id="addBlockSiteBtn" class="btn-small">Add</button>
           </div>
           <ul id="blockedSitesList" class="simple-list">
             <!-- Blocked sites -->
